@@ -4,8 +4,8 @@
   "name": "quant-desktop-website",
   "framework": null,
   "installCommand": "npm install",
-  "buildCommand": "npm run build:website",
-  "outputDirectory": "apps/website/dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
   "headers": [
