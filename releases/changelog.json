@@ -1,0 +1,16 @@
+{
+  "releases": [
+    {
+      "version": "0.1.0-beta.1",
+      "date": "2026-06-01",
+      "channel": "beta",
+      "summary": "首次 release-only 分发准备版本。",
+      "changes": [
+        "新增公开下载网站与 release metadata。",
+        "桌面端更新流程改为用户确认下载与安装。",
+        "补充 SHA256 校验、发布检查清单和安全文档。"
+      ],
+      "riskNotice": "本产品用于投资研究、策略验证和风险理解，不承诺收益，不提供自动实盘交易。"
+    }
+  ]
+}
