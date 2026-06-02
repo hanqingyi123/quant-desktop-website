@@ -1,0 +1,38 @@
+{
+  "version": "0.1.0-beta.1",
+  "channel": "beta",
+  "releaseDate": "2026-06-01",
+  "releaseRepo": "YOUR_ORG/quant-desktop-releases",
+  "sourceRepoPrivate": true,
+  "manualUpdateRequired": true,
+  "notes": "首次 release-only 分发元数据占位。正式发布时由 release:prepare 生成文件大小、SHA256 和下载地址。",
+  "files": [
+    {
+      "platform": "mac",
+      "arch": "universal",
+      "type": "dmg",
+      "name": "A股研究工作台-0.1.0-beta.1-universal.dmg",
+      "url": "https://github.com/YOUR_ORG/quant-desktop-releases/releases/download/v0.1.0-beta.1/A股研究工作台-0.1.0-beta.1-universal.dmg",
+      "sha256": "PENDING_RELEASE_SHA256",
+      "size": 0
+    },
+    {
+      "platform": "mac",
+      "arch": "universal",
+      "type": "zip",
+      "name": "A股研究工作台-0.1.0-beta.1-universal.zip",
+      "url": "https://github.com/YOUR_ORG/quant-desktop-releases/releases/download/v0.1.0-beta.1/A股研究工作台-0.1.0-beta.1-universal.zip",
+      "sha256": "PENDING_RELEASE_SHA256",
+      "size": 0
+    },
+    {
+      "platform": "win",
+      "arch": "x64",
+      "type": "nsis",
+      "name": "A股研究工作台-0.1.0-beta.1-x64-安装程序.exe",
+      "url": "https://github.com/YOUR_ORG/quant-desktop-releases/releases/download/v0.1.0-beta.1/A股研究工作台-0.1.0-beta.1-x64-安装程序.exe",
+      "sha256": "PENDING_RELEASE_SHA256",
+      "size": 0
+    }
+  ]
+}

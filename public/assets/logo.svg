@@ -1,0 +1,10 @@
+<svg width="324" height="76" viewBox="0 0 324 76" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">quant-desktop</title>
+  <rect x="2" y="2" width="72" height="72" rx="18" fill="#0E1726" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+  <circle cx="37" cy="35" r="18" stroke="#3EA7FF" stroke-width="9"/>
+  <path d="M50 49L61 60" stroke="#3EA7FF" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="62" cy="59" r="5" fill="#8ED3FF"/>
+  <path d="M99 28H109V53H99V28ZM116 20H126V53H116V20ZM133 35H143V53H133V35ZM150 14H160V53H150V14Z" fill="#3EA7FF"/>
+  <text x="176" y="36" fill="#E6E8EB" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">quant-desktop</text>
+  <text x="176" y="57" fill="#9CA8B8" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">AI-native A 股策略研究工作台</text>
+</svg>
