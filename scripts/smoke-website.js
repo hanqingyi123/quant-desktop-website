@@ -61,6 +61,19 @@ async function main() {
     }
   }
 
+  const siteCss = await readDistFile("assets/site.css");
+  for (const required of [
+    "overflow-x: hidden",
+    ".hero-actions .button",
+    "width: 100%",
+    ".trust-row",
+    "grid-template-columns: 1fr",
+  ]) {
+    if (!siteCss.includes(required)) {
+      problems.push(`assets/site.css 缺少移动端防溢出规则：${required}`);
+    }
+  }
+
   const safetyHtml = await readDistFile("safety/index.html");
   if (!safetyHtml.includes("桌面端默认不静默下载")) {
     problems.push("safety/index.html 缺少更新安全说明");

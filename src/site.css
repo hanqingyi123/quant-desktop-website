@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   color: var(--text);
   font-family: Inter, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   background: var(--bg-dark);
+  overflow-x: hidden;
 }
 
 body::before {
@@ -175,6 +177,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   min-height: 48px;
   padding: 0 20px;
   font-weight: 800;
@@ -218,6 +221,8 @@ h2 {
 }
 
 .product-shot {
+  width: 100%;
+  min-width: 0;
   min-height: 500px;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045));
@@ -581,12 +586,50 @@ footer {
     width: min(100% - 28px, 1200px);
   }
 
+  .hero,
+  .hero-copy,
+  .product-shot {
+    max-width: 100%;
+  }
+
   h1 {
-    font-size: 42px;
+    max-width: 320px;
+    font-size: 31px;
+    line-height: 1.16;
+    word-break: break-word;
   }
 
   .intro {
     font-size: 19px;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .trust-row,
+  .risk-strip {
+    justify-content: flex-start;
+  }
+
+  .trust-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .trust-row span,
+  .risk-strip span,
+  .badge {
+    max-width: 100%;
+    white-space: normal;
   }
 
   .product-shot {

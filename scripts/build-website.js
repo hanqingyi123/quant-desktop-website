@@ -10,6 +10,7 @@ const version = process.env.WEBSITE_VERSION || "0.1.0-beta.1";
 const deployTime = process.env.WEBSITE_DEPLOY_TIME || new Date().toISOString();
 const appName = process.env.WEBSITE_APP_NAME || "quant-desktop";
 const siteUrl = process.env.WEBSITE_SITE_URL || "https://quant-desktop.app";
+const basePath = normalizeBasePath(process.env.WEBSITE_BASE_PATH || "");
 const seoTitle = `${appName} | AI-native A 股策略研究工作台`;
 const seoDescription = "用自然语言讨论策略，用历史数据验证想法。AI 策略助手、快速回测、实验对比、数据来源可追溯。";
 
@@ -103,6 +104,25 @@ function pagePath(slug) {
   return slug ? path.join(distRoot, slug, "index.html") : path.join(distRoot, "index.html");
 }
 
+function normalizeBasePath(value) {
+  const trimmed = String(value || "").trim().replace(/\/+$/g, "");
+  if (!trimmed || trimmed === "/") {
+    return "";
+  }
+  return trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+}
+
+function sitePath(value) {
+  if (!value || value.startsWith("#") || /^https?:\/\//.test(value)) {
+    return value || "/";
+  }
+  const normalized = value.startsWith("/") ? value : `/${value}`;
+  if (!basePath) {
+    return normalized;
+  }
+  return normalized === "/" ? `${basePath}/` : `${basePath}${normalized}`;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -113,7 +133,7 @@ function escapeHtml(value) {
 
 function renderNav() {
   return pages.map((item) => {
-    const href = item.slug ? `/${item.slug}/` : "/";
+    const href = sitePath(item.slug ? `/${item.slug}/` : "/");
     const label = item.slug ? item.title.split(" - ")[0] : "首页";
     return `<a href="${href}">${escapeHtml(label)}</a>`;
   }).join("");
@@ -127,8 +147,8 @@ function renderMeta(page) {
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
-    <link rel="icon" type="image/png" href="/assets/product-icon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="${sitePath("/assets/product-icon.png")}">
+    <link rel="apple-touch-icon" href="${sitePath("/apple-touch-icon.png")}">
     <meta name="application-name" content="${escapeHtml(appName)}">
     <meta name="theme-color" content="#0A0E14">
     <meta property="og:title" content="quant-desktop - AI-native A 股策略研究工作台">
@@ -162,7 +182,7 @@ function renderMockup() {
 
 function renderHero(page) {
   const actions = (page.cta || [["查看功能", "/features/", "primary"]]).map(([label, href, kind]) => (
-    `<a class="button ${kind === "secondary" ? "button-secondary" : "button-primary"}" href="${href}">${escapeHtml(label)}</a>`
+    `<a class="button ${kind === "secondary" ? "button-secondary" : "button-primary"}" href="${sitePath(href)}">${escapeHtml(label)}</a>`
   )).join("");
   return `<section class="hero">
     <div class="hero-copy">
@@ -196,7 +216,7 @@ function renderHome() {
   </section>
   <section class="section-block download-band">
     <div><p class="eyebrow">Desktop release</p><h2>桌面版即将开放下载</h2><p>正式版本会提供 macOS 与 Windows 安装包、SHA256 校验和签名状态。</p></div>
-    <a class="button button-primary" href="/download/">查看下载页</a>
+    <a class="button button-primary" href="${sitePath("/download/")}">查看下载页</a>
   </section>`;
 }
 
@@ -285,13 +305,13 @@ function renderPage(page) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${renderMeta(page)}
-    <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="${sitePath("/assets/site.css")}">
   </head>
   <body>
     <div class="ambient" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="brand" href="/">
-        <img src="/assets/logo.svg" alt="quant-desktop logo" width="162" height="38">
+      <a class="brand" href="${sitePath("/")}">
+        <img src="${sitePath("/assets/logo.svg")}" alt="quant-desktop logo" width="162" height="38">
       </a>
       <nav>${renderNav()}</nav>
     </header>

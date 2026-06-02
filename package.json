@@ -7,6 +7,7 @@
     "dev": "node scripts/build-website.js && node scripts/serve-website.js",
     "build": "node scripts/build-website.js",
     "build:website": "node scripts/build-website.js",
+    "build:github-pages": "WEBSITE_SITE_URL=https://hanqingyi123.github.io/quant-desktop-website WEBSITE_BASE_PATH=/quant-desktop-website node scripts/build-website.js",
     "preview": "node scripts/serve-website.js",
     "smoke": "node scripts/smoke-website.js",
     "typecheck": "node --check scripts/build-website.js && node --check scripts/smoke-website.js && node --check scripts/serve-website.js",
